@@ -1,0 +1,30 @@
+body {
+	background-color : #cff5fa;
+	color            : #25802d;
+	margin           : 0;
+	padding          : 0;
+}
+
+h1 {
+	font-family : Arial, sans-serif;
+}
+
+#koptekst {
+	color     : darkred;
+	font-size : 24px;
+}
+
+.artikelTekst {
+	font-family : Arial, sans-serif;
+	color       : blue;
+}
+
+.responsive-image {
+	max-width : 100%;
+}
+.floatDiv{
+	float: left;
+	width: 250px;
+	border: 1px solid black;
+	padding: 10px;
+}
