@@ -1,0 +1,12 @@
+@import url(http://fonts.googleapis.com/css?family=Tangerine);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+body {
+	font-family : 'Tangerine', serif;
+	font-size   : 96px;
+}
+#boxModel{
+	font-family: 'Roboto', serif;
+	font-size :48px;
+	color: salmon;
+}
