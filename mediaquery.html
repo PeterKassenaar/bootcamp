@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Media Queries</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <style>
+        /* algemene stijlen: ALTIJD van toepassing */
+        body{
+            background-color: #cff5fa;
+        }
+        p{
+            font-family: Arial, sans-serif;
+        }
+
+        ul li{
+            display: block;
+            list-style-type: none;
+        }
+
+
+        /* Stijlen voor een klein scherm */
+        @media screen and (min-width: 480px) {
+            body {
+                background-color: #25802d;
+            }
+            p{
+                font-family: "Times New Roman", serif;
+            }
+            ul li{
+                display: inline-block;
+                list-style-type: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<h1>Voorbeeld media queries</h1>
+<ul>
+    <li>Home</li>
+    <li>Contact</li>
+    <li>Product</li>
+    <li>Over ons</li>
+</ul>
+
+<p>Hiervoor wordt de CSS-regel @media gebruikt.</p>
+<p>Maak het scherm breder en smaller om het resultaat te zien.</p>
+</body>
+</html>
