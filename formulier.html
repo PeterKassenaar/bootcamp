@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulieren demo</title>
+    <style>
+        label {
+            display : block;
+        }
+
+        button[type=submit] {
+            border           : 2px solid red;
+            border-radius    : 6px;
+            background-color : #cff5fa;
+            color            : #333;
+            padding          : 10px;
+        }
+    </style>
+</head>
+<body>
+<h2>Formulieren demo</h2>
+<p>Velden met een sterretje zijn verplicht *</p>
+<form method="post"
+      action="http://www.kassenaar.com/hcj/testform.asp">
+    <label for="txtName">Naam *:</label>
+    <input type="text"
+           required
+           value=""
+           name="txtName"
+           id="txtName" placeholder="Typ je naam">
+    <label for="txtCheck">Wel of geen pizza? *:</label>
+    <input type="checkbox"
+           required
+           value=""
+           checked
+           name="txtCheck"
+           id="txtCheck" > Pizza?<br>
+    <button type="submit">Verzenden</button>
+</form>
+</body>
+</html>
