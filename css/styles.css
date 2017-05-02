@@ -19,12 +19,43 @@ h1 {
 	color       : blue;
 }
 
-.responsive-image {
+.floatDiv {
+	float   : left;
+	width   : 250px;
+	border  : 1px solid black;
+	padding : 10px;
+}
+
+.floatDiv img {
 	max-width : 100%;
 }
-.floatDiv{
-	float: left;
-	width: 250px;
-	border: 1px solid black;
-	padding: 10px;
+
+.rood {
+	color  : red;
+	border : 2px solid crimson;
+}
+
+.inleiding {
+	font-variant : small-caps;
+	font-size    : larger;
+	color        : blue;
+}
+
+.kern {
+	font-family : Arial, sans-serif;
+}
+
+ul li {
+	float           : left;
+	list-style-type : none;
+}
+
+#navMenu li  a {
+	color           : #f544ea;
+	font-size       : 28px;
+	text-decoration : none;
+}
+
+.clear {
+	clear: both;
 }

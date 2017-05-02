@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LIjsten en opsommingen</title>
+    <style>
+        li {
+            color : blue;
+        }
+
+        /* ul li:hover {*/
+            /*color     : red;*/
+            /*font-size : 20px;*/
+        /*}*/
+
+        div + p {
+            color : green;
+        }
+
+        /*---- Menu Maken --- */
+        #menu{
+            margin-left: -3em;
+        }
+        #menu li {
+            list-style-type: none;
+            display: inline-block;
+            width: 4em;
+            border : 1px solid darkblue;
+            background-color: deepskyblue;
+            font-size: 200%;
+            padding: 4px;
+            text-align: center ;
+        }
+        #menu a{
+             text-decoration: none;
+            color: white;
+         }
+        #menu a:hover{
+            background-color: white;
+            color: darkblue;
+        }
+        #menu li:hover{
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+<h1>Lijsten en opsommingen</h1>
+
+<h2>Genummerde lijst</h2>
+<ol>
+    <li>Dit is nummer 1</li>
+    <li>Dit is nummer 2</li>
+    <li>Dit is nummer 3</li>
+    <li>Dit is nummer 4</li>
+</ol>
+<h2>ongenummerde lijst</h2>
+<ul>
+    <li>Dit is nummer 1</li>
+    <li>Dit is nummer 2</li>
+    <li>Dit is nummer 3</li>
+    <li>Dit is nummer 4</li>
+</ul>
+<h2>Menu </h2>
+<ul id="menu">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Over ons</a></li>
+    <li><a href="#">Producten</a></li>
+</ul>
+
+
+</body>
+</html>
