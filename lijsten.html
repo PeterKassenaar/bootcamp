@@ -9,8 +9,8 @@
         }
 
         /* ul li:hover {*/
-            /*color     : red;*/
-            /*font-size : 20px;*/
+        /*color     : red;*/
+        /*font-size : 20px;*/
         /*}*/
 
         div + p {
@@ -18,31 +18,35 @@
         }
 
         /*---- Menu Maken --- */
-        #menu{
-            margin-left: -3em;
+        #menu {
+            margin-left : -3em;
         }
+
         #menu li {
-            list-style-type: none;
-            display: inline-block;
-            width: 4em;
-            border : 2px solid darkblue;
-            border-radius: 4px;
-            background-color: white;
-            color:darkblue;
-            font-size: 200%;
-            padding: 4px;
-            text-align: center ;
+            list-style-type  : none;
+            display          : inline-block;
+            width            : 4em;
+            border           : 2px solid darkblue;
+            border-radius    : 4px;
+            background-color : white;
+            color            : darkblue;
+            font-size        : 200%;
+            padding          : 4px;
+            text-align       : center;
         }
-        #menu a{
-             text-decoration: none;
-            color: darkblue;
-         }
-        #menu a:hover{
-            background-color: white;
-            color: darkblue;
+
+        #menu a {
+            text-decoration : none;
+            color           : darkblue;
         }
-        #menu li:hover{
-            color: darkblue;
+
+        #menu a:hover {
+            background-color : white;
+            color            : darkblue;
+        }
+
+        #menu li:hover {
+            color : darkblue;
         }
     </style>
 </head>
@@ -64,13 +68,14 @@
     <li>Dit is nummer 4</li>
 </ul>
 <h2>Menu </h2>
-<ul id="menu">
-    <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Over ons</a></li>
-    <li><a href="#">Producten</a></li>
-</ul>
-
+<nav id="menu">
+    <ul>
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Over ons</a></li>
+        <li><a href="#">Producten</a></li>
+    </ul>
+</nav>
 
 </body>
 </html>
