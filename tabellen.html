@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabellen</title>
+    <style>
+        /*Opmaak voor de tabel*/
+        table {
+            width      : 100%;
+            border     : 1px solid black;
+            text-align : left;
+        }
+
+        /*Witruimte binnen de cellen*/
+        td, th {
+            padding : 10px;
+        }
+
+        /*Rijen om-en-om een andere achtergrondkleur geven*/
+        tr:nth-child(odd) {
+            background-color : #cecece;
+        }
+
+        /*Bovenste rij een afwijkende kleur*/
+        thead tr th {
+            background-color : #cff5fa;
+        }
+
+        /*Koptekst in de overspannende cel aan de bovenkant*/
+        td h2 {
+            font-family : Arial, sans-serif;
+            text-align  : center;
+        }
+    </style>
+</head>
+<body>
+<h1>Voorbeeld van een tabel</h1>
+<table>
+    <thead>
+    <tr>
+        <td colspan="3"><h2>Namen en email-adressen</h2></td>
+    </tr>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Peter</td>
+        <td>info@kassenaar.com</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Sarah</td>
+        <td>sarah@sarah.com</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Wouter</td>
+        <td>wouter@wouter.com</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Peter</td>
+        <td>info@kassenaar.com</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Sarah</td>
+        <td>sarah@sarah.com</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Wouter</td>
+        <td>wouter@wouter.com</td>
+    </tr>
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+</table>
+</body>
+</html>
