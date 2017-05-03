@@ -3,32 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <title>Testpagina bootstrap</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <style>
-        /*.divRand {*/
-            /*border  : 1px solid black;*/
-            /*padding : 4px;*/
-        /*}*/
+        .btn-success {
+            background-color : #2e6da4;
+        }
+
+        .btn-success:hover {
+            background-color : #8ec2bf;
+        }
+        /* Overrule/hack om container 100% breed te maken */
+        .container-fluid{
+            margin: 0;
+            padding :0;
+        }
     </style>
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div class="col-xs-12">
-            <div class="divRand">
-               <h1>Dit is een header rij</h1>
+            <div style="background-color: rosybrown">
+                <h1>Dit is een header rij - container fluid</h1>
             </div>
         </div>
     </div>
+</div>
+<div class="container">
     <div class="row">
         <div class="col-xs-6">
-            <div class="divRand">Dit is de linker kolom van de tweede rij
-            </div>
+            <h2>Tabel voorbeeld</h2>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <!--Deze rij overspant drie kolommen-->
+                    <td colspan="3"><h2>Namen en email-adressen</h2></td>
+                </tr>
+                <tr>
+                    <!--Header-row-->
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--De daadwerkelijke data in de tabel-->
+                <tr>
+                    <td>1</td>
+                    <td>Peter</td>
+                    <td>info@kassenaar.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sarah</td>
+                    <td>sarah@sarah.com</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Wouter</td>
+                    <td>wouter@wouter.com</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Peter</td>
+                    <td>info@kassenaar.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sarah</td>
+                    <td>sarah@sarah.com</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Wouter</td>
+                    <td>wouter@wouter.com</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <!--Table Footer wordt bijna nooit gebruikt-->
+                </tfoot>
+            </table>
         </div>
         <div class="col-xs-6">
-            <div class="divRand">
-                Dit is de rechter kolom van de tweede rij
-            </div>
+            <h2>Formulier voorbeeld</h2>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="input-lg form-control" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="input-lg form-control" id="exampleInputPassword1"
+                           placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-success">
+
+                    Verzenden
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+                <button type="reset" class="btn btn-danger">
+                    Reset
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </form>
         </div>
     </div>
     <div class="row">
