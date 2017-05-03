@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulieren demo</title>
+    <link rel="stylesheet" href="css/styles.css">
     <style>
         label {
             display : block;
+            font-size: 14px !important;
+            margin-top: 10px;
         }
 
         button[type=submit] {
@@ -17,11 +20,7 @@
         }
 
         form{
-            display: block;
-            width: 50%;
-            margin: 0 auto;
-            border: 1px solid rebeccapurple;
-            text-align: center;
+         /*line-height: 200%;*/
         }
     </style>
 </head>
@@ -30,7 +29,7 @@
 <p>Velden met een sterretje zijn verplicht *</p>
 <form method="post"
       action="http://www.kassenaar.com/hcj/testform.asp">
-    <label for="txtName">Naam *:</label>
+    <label for="txtName" style="font-size: 100px;">Naam *:</label>
     <input type="text"
            required
            value=""
@@ -43,6 +42,21 @@
            checked
            name="txtCheck"
            id="txtCheck" > Pizza?<br>
+    <h2>Selectielijst</h2>
+    <label for="selectielijst">Kies een land</label>
+    <select name="selectielijst" id="selectielijst">
+        <option value="-1">Maak een keuze</option>
+        <option value="NL">Nederland</option>
+        <option value="BE">Belgie</option>
+        <option value="UK">Verenigd Koninkrijk</option>
+        <option value="USA">Verenigde Staten</option>
+        <option value="Anders">Anders, namelijk...</option>
+    </select>
+    <h2>Voorbeeld textarea</h2>
+    <textarea name="txtArea"
+              id="txtArea"
+              cols="30" rows="10"
+              placeholder="Uw opmerkingen...."></textarea>
     <button type="submit">Verzenden</button>
 </form>
 
