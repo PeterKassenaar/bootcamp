@@ -9,4 +9,10 @@ Voorbeelden en slides bij Bootcamp front-end webdesign
  - Voorbeelden van CSS3 Media Queries: https://www.w3schools.com/css/css3_mediaqueries_ex.asp
  - CSS Font sizes: pixels vs. em's vs. percent: http://kyleschaeffer.com/development/css-font-size-em-vs-px-vs-pt-vs/
  
+## Bootstrap-info
+ - Bootstrap homepage - http://getbootstrap.com/
+ - Zurb Foundation (het meest bekende alternatief voor Bootstrap) http://foundation.zurb.com/
+ - Meer alternatieven voor Bootstrap - https://www.slant.co/topics/3946/~bootstrap-alternatives
+ 
+ 
  
