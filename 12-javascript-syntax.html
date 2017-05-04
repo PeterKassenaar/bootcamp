@@ -80,15 +80,12 @@
 
 	// Winkelmandje tonen in de UI via een for-lus
 	for (var i = 0; i < winkelmandje.length; i = i + 1) {
-		// 1. Maak nieuw listitem
+		// 1. Maak nieuw listitem. Nu ga je dus HTML en JavaScript combineren.
 		var listItem = '<li>';
 
 		// 2. Voeg naam van product toe aan listitem
 		listItem += winkelmandje[i].naam + ' ';
 		listItem += '&euro; ' + winkelmandje[i].prijs + '</li>';
-
-		// Debugging (even checken hoe Listitem er nu uitziet)
-//        console.log(listItem);
 
 		// 3. Haal referentie op naar result en voeg het nieuwe
 		// listitem er aan toe

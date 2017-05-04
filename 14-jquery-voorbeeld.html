@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Voorbeeld</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .active{
+            background-color: #2aabd2;
+        }
+    </style>
+</head>
+<body>
+<!--Dit is de User Interface in HTML-->
+<div class="container">
+    <h1 id="koptekst">Leeg.......</h1>
+    <input class="input-lg" type="text" id="setText" placeholder="tekst voor koptekst">
+    <button id="btnSetText" class="btn btn-primary">Set Koptekst</button>
+    <hr>
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere natus pariatur perferendis quis repellat
+        voluptas voluptates! Delectus dolorum fugit incidunt labore laborum minima porro, quae quisquam rerum, unde
+        veritatis voluptatum?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere natus pariatur perferendis quis repellat
+        voluptas voluptates! Delectus dolorum fugit incidunt labore laborum minima porro, quae quisquam rerum, unde
+        veritatis voluptatum?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere natus pariatur perferendis quis repellat
+        voluptas voluptates! Delectus dolorum fugit incidunt labore laborum minima porro, quae quisquam rerum, unde
+        veritatis voluptatum?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere natus pariatur perferendis quis repellat
+        voluptas voluptates! Delectus dolorum fugit incidunt labore laborum minima porro, quae quisquam rerum, unde
+        veritatis voluptatum?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere natus pariatur perferendis quis repellat
+        voluptas voluptates! Delectus dolorum fugit incidunt labore laborum minima porro, quae quisquam rerum, unde
+        veritatis voluptatum?
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere natus pariatur perferendis quis repellat
+        voluptas voluptates! Delectus dolorum fugit incidunt labore laborum minima porro, quae quisquam rerum, unde
+        veritatis voluptatum?
+    </p>
+</div>
+<!--Vanaf hier: Scripts-->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+	// Aanhaken van klikgedrag van knop
+	$('#btnSetText').on('click', setTekst);
+
+	// Functie die wordt uitgevoerd als op de knop wordt geklikt.
+	function setTekst() {
+		var gekozenTekst = $('#setText').val();
+		$('#koptekst').text(gekozenTekst);
+	}
+	$('p:even').addClass('active')
+
+</script>
+</body>
+</html>
