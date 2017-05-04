@@ -13,10 +13,13 @@
     <li>Gewicht: <span id="autoGewicht"></span></li>
     <li>Kenteken: <span id="autoKenteken"></span></li>
 </ul>
+<h2>Inhoud van de winkelwagen</h2>
+<ul id="result"></ul>
 <!--Hieronder scripts - liever in aparte pagina, maar dit is een demo -->
 <script>
+	//1.  Variabele maken
 	var x = 10;
-	// Vergelijkings statement (met accolades)
+	//2.  Vergelijkings statement if() ...
 	if (x > 10) {
 		console.log('X is groter dan 10');
 	}
@@ -25,7 +28,8 @@
 	}
 
 	//**********************
-	// Object definieren
+	// Object definieren; hiervoor worden ook accolades gebruikt.
+	// In werkelijkheid zullen objecten (later) uit een database komen.
 	//**********************
 	var auto = {
 		wielen      : 4,
@@ -38,21 +42,59 @@
 		},
 		kleur       : 'rood',
 		merk        : 'Saab'
-	}
+	};
 
 	//**********************
 	// Elementen uit de pagina ophalen
-    // en inhoud van het object tonen in de pagina
+	// en inhoud van het object tonen in de pagina
 	//**********************
-    document.getElementById('autoMerk').innerText = auto.merk;
-    document.getElementById('autoGewicht').innerText = auto.gewicht;
-    document.getElementById('autoKenteken').innerText = auto.kenteken;
+	document.getElementById('autoMerk').innerText     = auto.merk;
+	document.getElementById('autoGewicht').innerText  = auto.gewicht;
+	document.getElementById('autoKenteken').innerText = auto.kenteken;
 
+	//**********************
+	//  Arrays gebruiken.
+	//**********************
+	// Vullen van de array
+	var namenArray = ['Jan', 'Piet', 'Marie', 'Peter'];
+	console.log('De eerste naam is: ' + namenArray[0]);
 
-	//**********************
-	// 'Winkelmandje' is een VERZAMELING van objecten.
-    // In JavaScript-termen is een verzameling een Array.
-	//**********************
+	// indexOf() is een arrayfunctie!
+	var positie = namenArray.indexOf('Karin');
+	console.log('Karin is gevonden op positie:' + positie);
+
+	console.log('JOIN van de array levert op:' + namenArray.join());
+
+	// Item toevoegen aan de array, bijvoorbeeld
+	// een nieuwe naam
+	namenArray.push('Sarah');
+	console.log(namenArray);
+
+	// Array van objecten:
+	var winkelmandje = [
+		{naam : 'Schilderij', prijs : 29.95},
+		{naam : 'Tafel', prijs : 49.95},
+		{naam : 'Stoel (per stuk)', prijs : 19.95},
+		{naam : 'bank', prijs : 300}
+	];
+
+	// Winkelmandje tonen in de UI via een for-lus
+	for (var i = 0; i < winkelmandje.length; i = i + 1) {
+		// 1. Maak nieuw listitem
+		var listItem = '<li>';
+
+		// 2. Voeg naam van product toe aan listitem
+		listItem += winkelmandje[i].naam + ' ';
+		listItem += '&euro; ' + winkelmandje[i].prijs + '</li>';
+
+		// Debugging (even checken hoe Listitem er nu uitziet)
+//        console.log(listItem);
+
+		// 3. Haal referentie op naar result en voeg het nieuwe
+		// listitem er aan toe
+		document.getElementById('result').innerHTML += listItem;
+	}
+
 
 </script>
 </body>

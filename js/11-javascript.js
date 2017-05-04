@@ -27,5 +27,5 @@ function gaOptellen() {
 
 	// 3c : referentie ophalen naar output veld en resultaat
 	// er in wegschrijven.
-	var outputVeld = document.getElementById('result').innerText = result;
+	document.getElementById('result').innerText = result;
 }
