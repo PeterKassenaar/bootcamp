@@ -7,8 +7,52 @@
 <body>
 <h1>Voorbeelden JavaScript syntaxis</h1>
 <h2>Kijk in de DevTools console en de broncode.</h2>
+<h3>Dit is mijn auto:</h3>
+<ul>
+    <li>Merk: <span id="autoMerk"></span></li>
+    <li>Gewicht: <span id="autoGewicht"></span></li>
+    <li>Kenteken: <span id="autoKenteken"></span></li>
+</ul>
 <!--Hieronder scripts - liever in aparte pagina, maar dit is een demo -->
 <script>
+	var x = 10;
+	// Vergelijkings statement (met accolades)
+	if (x > 10) {
+		console.log('X is groter dan 10');
+	}
+	else {
+		console.log('X is NIET groter dan 10');
+	}
+
+	//**********************
+	// Object definieren
+	//**********************
+	var auto = {
+		wielen      : 4,
+		gewicht     : 1200,
+		kenteken    : '1-ABC-23',
+		accessoires : {
+			acc1 : 'ruitenwisser',
+			acc2 : 'cd-speler',
+			acc3 : 'airco'
+		},
+		kleur       : 'rood',
+		merk        : 'Saab'
+	}
+
+	//**********************
+	// Elementen uit de pagina ophalen
+    // en inhoud van het object tonen in de pagina
+	//**********************
+    document.getElementById('autoMerk').innerText = auto.merk;
+    document.getElementById('autoGewicht').innerText = auto.gewicht;
+    document.getElementById('autoKenteken').innerText = auto.kenteken;
+
+
+	//**********************
+	// 'Winkelmandje' is een VERZAMELING van objecten.
+    // In JavaScript-termen is een verzameling een Array.
+	//**********************
 
 </script>
 </body>
