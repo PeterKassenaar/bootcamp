@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index van template file</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        .active {
+            background-color : #1b6d85;
+            color            : white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!--header row-->
+    <div class="row" id="headerRow">
+
+    </div>
+    <!--content row-->
+    <div class="row">
+        <div class="col-md-4" id="menuCol">
+
+        </div>
+        <div class="col-md-8" id="contentCol">
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12" id="footerCol">
+
+        </div>
+    </div>
+</div>
+<!--Scripts-->
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+	// Ga de templates laden, zodra het document
+	// klaar is met laden
+	$(document).ready(function () {
+		$('#headerRow').load('templates/tpl_header.html');
+		$('#menuCol').load('templates/tpl_menu.html');
+		$('#contentCol').load('templates/tpl_home.html');
+		$('#footerCol').load('templates/tpl_footer.html');
+	});
+
+	// Functies voor klikken op de knoppen in het menu
+	$(document).on('click', '#linkHome', laadHomePagina);
+	$(document).on('click', '#linkContact', laadContactPagina);
+	$(document).on('click', '#linkProducten', laadProductPagina);
+	$(document).on('click', '#linkOverOns', laadOveronsPagina);
+
+	// Functie voor Contacten
+	function laadContactPagina() {
+		reset();
+		$('#contentCol').load('templates/tpl_contact.html');
+		$('#linkContact').parent().addClass('active')
+	}
+
+	// Functie voor home
+	function laadHomePagina() {
+		reset();
+		$('#contentCol').load('templates/tpl_home.html');
+		$('#linkHome').parent().addClass('active')
+	}
+
+	// Functie voor Producten pagina
+	function laadProductPagina() {
+		reset();
+		$('#contentCol').load('templates/tpl_producten.html');
+		$('#linkProducten').parent().addClass('active')
+	}
+
+	// Functie voor home
+	function laadOveronsPagina() {
+		reset();
+		$('#contentCol').load('templates/tpl_overons.html');
+		$('#linkOverOns').parent().addClass('active')
+	}
+
+	// Resetten van de stijl voor het 'active' weergeven
+    // van het geselecteerde menu-item
+	function reset() {
+		$('#linkContact, #linkHome, #linkOverOns, #linkProducten')
+			.parent().removeClass('active');
+	}
+</script>
+
+</body>
+</html>
