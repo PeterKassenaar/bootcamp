@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie App</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .moviePoster{
+            display : inline-block;
+            max-width: 200px;
+            padding: 10px;
+            border:3px solid cornflowerblue;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+<!--User interface-->
+<div class="container">
+    <h1>My awesome movie app</h1>
+    <input type="text" id="txtMovieName" placeholder="movie name..." class="input-lg">
+    <button id="btnSearch" class="btn btn-primary">Search movies</button>
+    <h2>Results:</h2>
+    <hr>
+    <ul class="list-group" id="listMovieResults"></ul>
+</div>
+<!--Scripts hieronder-->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+	$(document).ready(function () {
+		// 1. Aanhaken van klik op de Zoek knop.
+		$('#btnSearch').on('click', searchMovie);
+
+		// 2. Functie om film te gaan zoeken
+		function searchMovie() {
+			// 2a. Maak mijn variabelen om de AJAX-call te kunnen uitvoeren
+			var movieName = $('#txtMovieName').val();
+			var movieUrl  = 'http://www.omdbapi.com/?';
+
+			// 2b. Stel de jQuery  Ajax-call in.
+			$.ajax({
+				url     : movieUrl + 's=' + movieName,
+				success : verwerkMovies,
+				error   : verwerkError
+			});
+
+			// 2c. Success handler voor de AJAX-call
+			function verwerkMovies(movies) {
+				// TODO: verwerk de movies in de UI
+                console.log(movies); // HOERA we hebben movies
+
+				$('#listMovieResults').empty();
+                for(var i = 0; i < movies.Search.length; i++){
+                	var newListItem = '<li class="list-group-item">';
+					newListItem += '<img class="moviePoster" src="' + movies.Search[i].Poster + '">';
+                	newListItem += movies.Search[i].Title;
+                	newListItem += '</li>';
+                	$('#listMovieResults').append(newListItem);
+                }
+			}
+
+            // 2d. Error handler voor de AJAX-call
+			function verwerkError(xhr, errorText, errorStatus) {
+				alert('FOUT:! ' + errorText)
+			}
+		}
+	})
+</script>
+</body>
+</html>
