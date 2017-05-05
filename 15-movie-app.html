@@ -4,13 +4,32 @@
     <meta charset="UTF-8">
     <title>Movie App</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
     <style>
-        .moviePoster{
-            display : inline-block;
-            max-width: 200px;
-            padding: 10px;
-            border:3px solid cornflowerblue;
-            border-radius: 8px;
+        /*Toon de muiswijzer als handje*/
+        .list-group-item {
+            cursor : pointer;
+        }
+
+        /*Zorg voor andere achtergrondkleur bij :hover*/
+        .list-group-item:hover {
+            background-color : #2aabd2;
+            color            : white;
+        }
+
+        /*Extra styling voor de film Posters*/
+        .moviePoster {
+            display       : inline-block;
+            max-width     : 200px;
+            padding       : 10px;
+            border        : 3px solid white;
+            border-radius : 8px;
+        }
+
+        /*Movie Details standaard verbergen en straks pas na muisklik met jQuery zichtbaar maken*/
+        .movieDetails {
+            display : none;
         }
     </style>
 </head>
@@ -24,7 +43,7 @@
     <hr>
     <ul class="list-group" id="listMovieResults"></ul>
 </div>
-<!--Scripts hieronder-->
+<!--Scripts hieronder - idealiter staat dit natuurlijk in een aparte pagina -->
 <script src="js/jquery-3.2.1.min.js"></script>
 <script>
 	$(document).ready(function () {
@@ -34,12 +53,12 @@
 		// 2. Functie om film te gaan zoeken
 		function searchMovie() {
 			// 2a. Maak mijn variabelen om de AJAX-call te kunnen uitvoeren
-			var movieName = $('#txtMovieName').val();
-			var movieUrl  = 'http://www.omdbapi.com/?';
+			var movieName = $('#txtMovieName').val(); // haal tekst in tekstveld op
+			var movieUrl  = 'http://www.omdbapi.com/?'; // URL van de externe API
 
 			// 2b. Stel de jQuery  Ajax-call in.
 			$.ajax({
-				url     : movieUrl + 's=' + movieName,
+				url     : movieUrl + 's=' + movieName, // zoekopdracht samenstellen
 				success : verwerkMovies,
 				error   : verwerkError
 			});
@@ -47,21 +66,62 @@
 			// 2c. Success handler voor de AJAX-call
 			function verwerkMovies(movies) {
 				// TODO: verwerk de movies in de UI
-                console.log(movies); // HOERA we hebben movies
+				console.log(movies); // HOERA we hebben movies
 
 				$('#listMovieResults').empty();
-                for(var i = 0; i < movies.Search.length; i++){
-                	var newListItem = '<li class="list-group-item">';
-					newListItem += '<img class="moviePoster" src="' + movies.Search[i].Poster + '">';
-                	newListItem += movies.Search[i].Title;
-                	newListItem += '</li>';
-                	$('#listMovieResults').append(newListItem);
-                }
+
+				// LET OP: Hier wordt nog weinig aan error-checking gedaan!
+				for (var i = 0; i < movies.Search.length; i++) {
+					var newListItem = '<li class="list-group-item">';
+					newListItem += '<span class="movieTitle">' + movies.Search[i].Title + '</span>';
+
+					// Error handling indien geen poster aanwezig
+					if (movies.Search[i].Poster === 'N/A') {
+						console.log('Geen poster gevonden');
+					} else {
+						// wel poster gevonden, toevoegen, met nieuwe <div>
+						// die getoond en verborgen kan gaan worden.
+						newListItem += '<div class="movieDetails">';
+						newListItem += ' <img class="moviePoster" src="' + movies.Search[i].Poster + '">';
+						newListItem += '</div>';
+					}
+					newListItem += '</li>';
+					// Daadwerkelijk toevoegen aan de lijst met resultaten.
+					// Het is niet best practice om dit binnen de for-lus
+					// te doen, vanwege performance-issues, maar dit is wel
+					// het eenvoudigst.
+					$('#listMovieResults').append(newListItem);
+				}
 			}
 
-            // 2d. Error handler voor de AJAX-call
+			// 2d. Error handler voor de AJAX-call
 			function verwerkError(xhr, errorText, errorStatus) {
 				alert('FOUT:! ' + errorText)
+			}
+
+			// HIER: eerst eventuele eventhandler 'click' verwijderen, om
+			// er voor te zorgen dat het klik-event niet meerdere keren wordt
+			// aangehaakt aan hetzelfde element. Gebruik hiervoor .off('click').
+			// Daarna met .on('click') het event weer aanzetten.
+			// Dit is ALLEEN nodig, omdat de films via een AJAX-call asynchroon
+			// binnenkomen en events op een later stadium moeten worden aangehaakt.
+			$(document)
+				.off('click')
+				.on('click', '.movieTitle', showDetails);
+
+			// Details tonen als op een movieTitle wordt geklikt
+			function showDetails() {
+				console.log('Toon movie details!');
+
+				// 1. Short way (credits: Sarah):
+				// $(this).next().toggle();
+
+				// 2: Complex way:
+				if ($(this).next().is(':visible')) {
+					$(this).next().slideUp();
+				} else {
+					$(this).next().slideDown();
+				}
 			}
 		}
 	})
